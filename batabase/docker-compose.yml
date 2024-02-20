@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  sql-server:
+    restart: always
+    image: mcr.microsoft.com/mssql/server
+    container_name: sql-server-container
+    environment:
+      SA_PASSWORD: YourStrongPassword!   # Change this to a strong password
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"  # Map the SQL Server port
+    volumes:
+      - ./sql-data:/var/opt/mssql/data   # Mount a volume for persistent data

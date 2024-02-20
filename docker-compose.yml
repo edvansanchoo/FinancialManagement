@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  financialmanagement:
+    image: financas-pessoais-backend:v1
+    container_name: financialmanagement-backend
+    environment:
+      - KEYTOKEN=rJo!4mazb3FG5L^jGrNhCEe9Rr#kNCxT3k@dokVc
+      - DATABASE_HOST=192.168.100.93
+      - DATABASE_PORT=1433
+      - DATABASE_USER=sa
+      - DATABASE_PASSWORD=YourStrongPassword!
+      - DATABASE_NAME=FinancialManagement
+    ports:
+      - "8080:8080"
