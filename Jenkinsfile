@@ -1,9 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Just Test') {
+        stage('Clean Backend') {
             steps {
-                bat 'echo Hello Pipeline'
+                dotnetClean configuration: 'Release', project: '${WORKSPACE}'
+            }
+        }
+        stage('Build Backend') {
+            steps {
+                dotnetBuild configuration: 'Release', project: '${WORKSPACE}'
+            }
+        }
+        stage('Publish Backend') {
+            steps {
+                dotnetPublish configuration: 'Release', project: '${WORKSPACE}', selfContained: false
             }
         }
     }
