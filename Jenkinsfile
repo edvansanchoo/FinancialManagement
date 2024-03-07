@@ -1,9 +1,9 @@
-pipeline{
+pipeline {
     agent any
     stages {
-        stage('Just Test'){
-            steps{
-                bat 'Hello Pipeline!'
+        stage('Just Test') {
+            steps {
+                bat 'Hello Pipeline'
             }
         }
     }
